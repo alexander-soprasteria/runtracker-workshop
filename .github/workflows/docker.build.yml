@@ -50,8 +50,8 @@ jobs:
         with:
           context: .
           file: ./ContainerFile
-          pushh: true
+          push: true
           tags: | 
-            ${{ secrets.ACR_NAME }}/azurecr.io/runtracker:${{ github.sha }}
-            ${{ secrets.ACR_NAME }}/azurecr.io/runtracker:latest
+            ${{ secrets.ACR_NAME }}.azurecr.io/runtracker:${{ github.sha }}
+            ${{ secrets.ACR_NAME }}.azurecr.io/runtracker:latest
  
