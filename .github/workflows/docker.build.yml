@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Containerfile
+          file: ./ContainerFile
           tags: runtracker:${{ github.sha }}
           outputs: type=docker, dest=/tmp/runTracker-image.tar
 
