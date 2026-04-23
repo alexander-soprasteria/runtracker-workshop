@@ -1,0 +1,21 @@
+FROM node:alpine
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+RUN npm run build
+
+FROM node:alpine
+
+WORKDIR /app
+
+COPY --from=build /app/dist/runTracker/browser ./dist
+# Expose poort 4200
+EXPOSE 4200
+# start commando
+CMD ["npx", "serve", "dist", "-p", "4200"]
+ 
+ 
